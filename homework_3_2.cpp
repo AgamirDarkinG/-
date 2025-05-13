@@ -12,9 +12,7 @@ public:
         this->i = 1;
     }
 
-    void setter(int  j) {
-        this->i = j;
-    }
+    
     void plus() {
         i++;
     }
@@ -28,17 +26,20 @@ public:
 
 int main(int argc, char** argv)
 {
-    Counter i;
+   
     std::string a;
     int b;
     char m = '1';
        
     std::cout << "Вы хотите указать начальное значение счётчика? Введите да или нет: ";
     std::cin >> a;
-    if (a == "да" || a == "ДА" || a == "yes") {
+    if (a == "да" || a == "ДА" || a == "yes") || a == "y") {
         std::cout << "Введите начальное значение счётчика: ";
         std::cin >> b;
-        i.setter(b);
+        Counter i(b);
+    };
+    else { 
+        Counter i; 
     }
             
     while (m != 'x') {
