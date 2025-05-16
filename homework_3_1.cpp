@@ -4,35 +4,30 @@
 #include <iostream>
 
 class Calculator {
-public:
+
     double num1;
     double num2;
 
-    bool set_num1(double num1 = 0) {
-        while (num1 == 0) {
-            std::cout << "Введите num1: ";
-            std::cin >> num1;
-            if (num1 != 0) {
-                this->num1 = num1;
-                return(1);
-            }
-            else {
-                std::cout << "Неверный ввод!" << std::endl;
-            }
+public:
+    bool set_num1(double num1) {
+        if (num1 != 0) {
+            this->num1 = num1;
+            return(1);
+        }
+        else {
+            std::cout << "Неверный ввод!" << std::endl;
+            return(0);
         }
     }
 
-    bool set_num2(double num2 = 0) {
-        while (num2 == 0) {
-            std::cout << "Введите num2: ";
-            std::cin >> num2;
-            if (num2 != 0) {
-                this->num2 = num2;
-                return(1);
-            }
-            else {
-                std::cout << "Неверный ввод!" << std::endl;
-            }
+    bool set_num2(double num2) {
+        if (num2 != 0) {
+            this->num2 = num2;
+            return(1);
+        }
+        else {
+            std::cout << "Неверный ввод!" << std::endl;
+            return(0);
         }
     }
 
@@ -58,14 +53,24 @@ public:
 
 int main(int argc, char** argv)
 {
-    //double num1 = 1;
-    //double num2 = 0;
+    int num_1, num_2;
+    Calculator a;
+               
+    while (1 == 1) {
+        
+        std::cout << "Введите num1: ";
+        std::cin >> num_1;
+        while (a.set_num1(num_1) == 0) {
+            std::cout << "Введите num1: ";
+            std::cin >> num_1;
+        }
 
-    while (0 == 0) {
-        Calculator a;
-
-        a.set_num1();
-        a.set_num2();
+        std::cout << "Введите num2: ";
+        std::cin >> num_2;
+        while (a.set_num2(num_2) == 0) {
+            std::cout << "Введите num2: ";
+            std::cin >> num_2;
+        }
 
         std::cout << "num1 + num2 = " << a.add() << std::endl;
         std::cout << "num1 - num2 = " << a.subtract_1_2() << std::endl;
@@ -73,7 +78,6 @@ int main(int argc, char** argv)
         std::cout << "num1 * num2 = " << a.multiply() << std::endl;
         std::cout << "num1 / num2 = " << a.divide_1_2() << std::endl;
         std::cout << "num2 / num1 = " << a.divide_2_1() << std::endl;
-
     }
 }
 

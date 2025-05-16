@@ -1,6 +1,4 @@
-﻿//
-
-#include <iostream>
+﻿#include <iostream>
 
 class Counter {
     int i;
@@ -8,11 +6,7 @@ public:
     Counter(int i) {
         this->i = i;
     }
-    Counter() {
-        this->i = 1;
-    }
 
-    
     void plus() {
         i++;
     }
@@ -25,23 +19,23 @@ public:
 };
 
 int main(int argc, char** argv)
-{
-   
+{   
     std::string a;
     int b;
     char m = '1';
        
     std::cout << "Вы хотите указать начальное значение счётчика? Введите да или нет: ";
     std::cin >> a;
-    if (a == "да" || a == "ДА" || a == "yes") || a == "y") {
+    if (a == "да" || a == "ДА" || a == "yes" || a == "y") {
         std::cout << "Введите начальное значение счётчика: ";
-        std::cin >> b;
-        Counter i(b);
-    };
-    else { 
-        Counter i; 
+        std::cin >> b;        
     }
-            
+    else { 
+        b = 1; 
+    }
+          
+    Counter i(b);
+
     while (m != 'x') {
         std::cout << "Введите команду ('+', '-', '=' или 'x'): ";
         std::cin >> m;
